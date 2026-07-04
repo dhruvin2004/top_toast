@@ -20,9 +20,7 @@ A beautiful top-sliding overlay toast notification for Flutter.
 
 ## Preview
 
-| Success | Error | Warning | Info |
-|---------|-------|---------|------|
-| ✅ Green | ❌ Red | ⚠️ Amber | 💡 Blue |
+![TopToast all types preview](https://raw.githubusercontent.com/developerpandav16/top_toast/main/screenshots/preview.png)
 
 ---
 

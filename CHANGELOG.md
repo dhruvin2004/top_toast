@@ -1,3 +1,8 @@
+## 0.0.2
+
+* Added preview screenshots to README.
+* Added platform support table (Android, iOS, Web, macOS).
+
 ## 0.0.1
 
 * Initial release.

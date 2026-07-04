@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #F0F2F5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 420px;
+  }
+  .toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+  .icon {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 17px;
+  }
+  .body { flex: 1; }
+  .title { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 2px; }
+  .msg { font-size: 12px; color: #666; line-height: 1.35; }
+  .close { font-size: 16px; color: #9CA3AF; cursor: pointer; padding: 2px; }
+
+  /* Success */
+  .success { background: #E7F2EB; border-color: #BDDBC9; }
+  .success .icon { background: #15803D; }
+
+  /* Error */
+  .error { background: #FBE9E9; border-color: #F5C2C2; }
+  .error .icon { background: #DC2626; }
+
+  /* Warning */
+  .warning { background: #FEF3E2; border-color: #FCE0B1; }
+  .warning .icon { background: #F59E0B; }
+
+  /* Info */
+  .info { background: #E9EFFD; border-color: #C2D3F9; }
+  .info .icon { background: #2563EB; }
+
+  /* Neutral */
+  .neutral { background: #EFEFEF; border-color: #D4D4D4; }
+  .neutral .icon { background: #666666; }
+
+  /* Action */
+  .action { font-size: 14px; font-weight: 600; white-space: nowrap; padding: 0 4px; }
+</style>
+</head>
+<body>
+
+<div class="toast success">
+  <div class="icon">✓</div>
+  <div class="body">
+    <div class="title">Success</div>
+    <div class="msg">Record saved successfully.</div>
+  </div>
+  <span class="close">✕</span>
+</div>
+
+<div class="toast error">
+  <div class="icon">✕</div>
+  <div class="body">
+    <div class="title">Error</div>
+    <div class="msg">Something went wrong. Please try again.</div>
+  </div>
+  <span class="close">✕</span>
+</div>
+
+<div class="toast warning">
+  <div class="icon">!</div>
+  <div class="body">
+    <div class="title">Warning</div>
+    <div class="msg">Low storage space remaining.</div>
+  </div>
+  <span class="close">✕</span>
+</div>
+
+<div class="toast info">
+  <div class="icon">💡</div>
+  <div class="body">
+    <div class="title">Did you know?</div>
+    <div class="msg">Pull down to refresh the list.</div>
+  </div>
+  <span class="close">✕</span>
+</div>
+
+<div class="toast neutral">
+  <div class="icon">ℹ</div>
+  <div class="body">
+    <div class="msg">Copied to clipboard</div>
+  </div>
+  <span class="close">✕</span>
+</div>
+
+<div class="toast error">
+  <div class="icon">✕</div>
+  <div class="body">
+    <div class="title">Deleted</div>
+    <div class="msg">Item has been removed.</div>
+  </div>
+  <span class="action" style="color:#DC2626;">Undo</span>
+  <span class="close">✕</span>
+</div>
+
+</body>
+</html>
