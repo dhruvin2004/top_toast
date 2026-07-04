@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Fixed README image — use relative path so pub.dev serves it directly.
+
 ## 0.0.3
 
 * Fixed GitHub image URL and repository links.
