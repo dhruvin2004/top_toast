@@ -20,7 +20,7 @@ A beautiful top-sliding overlay toast notification for Flutter.
 
 ## Preview
 
-![TopToast all types preview](https://raw.githubusercontent.com/dhruvinpandav999@gmail.com/top_toast/main/screenshots/preview.png)
+![TopToast all types preview](https://raw.githubusercontent.com/dhruvin2004/top_toast/main/screenshots/preview.png)
 
 ---
 
