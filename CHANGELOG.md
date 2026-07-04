@@ -1,3 +1,8 @@
+## 0.0.5
+
+* Added `TopToast.builder` — a `TransitionBuilder` for `MaterialApp`/`MaterialApp.router`'s `builder` parameter. Toasts now render above dialogs and bottom sheets.
+* Updated README with `MaterialApp.router` (GoRouter) setup instructions.
+
 ## 0.0.4
 
 * Fixed README image — use relative path so pub.dev serves it directly.

@@ -35,6 +35,8 @@ dependencies:
 
 ### 2. Create a navigator key and pass it to `TopToast.init`
 
+#### With `MaterialApp`
+
 ```dart
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -47,8 +49,42 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigatorKey,   // ← same key
+      navigatorKey: navigatorKey,
+      builder: TopToast.builder,   // ← always renders above dialogs & sheets
       home: HomePage(),
+    );
+  }
+}
+```
+
+#### With `MaterialApp.router` (e.g. GoRouter)
+
+`MaterialApp.router` does not expose a `navigatorKey` property directly.
+Pass the key to your router instead — GoRouter forwards it to its internal `Navigator`:
+
+```dart
+import 'package:go_router/go_router.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
+
+final router = GoRouter(
+  navigatorKey: navigatorKey,   // ← key goes here, not on MaterialApp.router
+  routes: [
+    GoRoute(path: '/', builder: (context, state) => HomePage()),
+  ],
+);
+
+void main() {
+  TopToast.init(navigatorKey: navigatorKey);
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: router,
+      builder: TopToast.builder,   // ← always renders above dialogs & sheets
     );
   }
 }
@@ -85,6 +121,10 @@ TopToast.toastWithAction(
 
 ### `TopToast.init({required GlobalKey<NavigatorState> navigatorKey})`
 Call once before showing any toast (typically in `main()`).
+
+### `TopToast.builder`
+A `TransitionBuilder` for the `builder` parameter of `MaterialApp` / `MaterialApp.router`.
+Wraps the navigator in a top-level `Overlay` so toasts always render above dialogs, bottom sheets, and modals.
 
 ### `TopToast.success({String? title, required String msg})`
 ### `TopToast.error({String? title, required String msg})`
