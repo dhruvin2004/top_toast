@@ -28,10 +28,31 @@ class TopToast {
 
   static GlobalKey<NavigatorState>? _navigatorKey;
   static OverlayEntry? _current;
+  static final _overlayKey = GlobalKey<OverlayState>();
 
   /// Initialise the package. Call once before any toast.
   static void init({required GlobalKey<NavigatorState> navigatorKey}) {
     _navigatorKey = navigatorKey;
+  }
+
+  /// Pass this to the `builder` parameter of [MaterialApp] or
+  /// [MaterialApp.router] so toasts always render above dialogs and bottom
+  /// sheets.
+  ///
+  /// ```dart
+  /// MaterialApp(
+  ///   navigatorKey: navigatorKey,
+  ///   builder: TopToast.builder,   // ← add this
+  ///   home: HomePage(),
+  /// )
+  /// ```
+  static Widget builder(BuildContext context, Widget? child) {
+    return Overlay(
+      key: _overlayKey,
+      initialEntries: [
+        OverlayEntry(builder: (_) => child ?? const SizedBox.shrink()),
+      ],
+    );
   }
 
   static void toast({required String msg}) =>
@@ -74,7 +95,7 @@ class TopToast {
     VoidCallback? onAction,
     Duration duration = const Duration(seconds: 3),
   }) {
-    final overlay = _navigatorKey?.currentState?.overlay;
+    final overlay = _overlayKey.currentState ?? _navigatorKey?.currentState?.overlay;
     if (overlay == null) return;
 
     _current?.remove();
