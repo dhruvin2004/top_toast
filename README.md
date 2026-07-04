@@ -10,6 +10,14 @@ A beautiful top-sliding overlay toast notification for Flutter.
 
 ---
 
+## Platform Support
+
+| Android | iOS | Web | macOS |
+|:-------:|:---:|:---:|:-----:|
+| ✅ | ✅ | ✅ | ✅ |
+
+---
+
 ## Preview
 
 | Success | Error | Warning | Info |
