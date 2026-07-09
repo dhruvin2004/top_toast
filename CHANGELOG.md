@@ -1,3 +1,7 @@
+## 0.0.9
+
+* Bug fixes and stability improvements.
+
 ## 0.0.8
 
 * **Confirmation dialogs** — `TopDialog.show()` with six built-in types: `delete`, `warning`, `success`, `failed`, `confirmation`, `custom`.
