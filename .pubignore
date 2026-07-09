@@ -1,0 +1,8 @@
+# Generated Flutter build artifacts in the example app
+example/android/local.properties
+example/android/app/src/main/java/io/flutter/plugins/
+example/ios/Flutter/Generated.xcconfig
+example/ios/Flutter/ephemeral/
+example/ios/Flutter/flutter_export_environment.sh
+example/ios/Runner/GeneratedPluginRegistrant.h
+example/ios/Runner/GeneratedPluginRegistrant.m

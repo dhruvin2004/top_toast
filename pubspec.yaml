@@ -1,9 +1,9 @@
 name: top_toast
 description: >-
-  A beautiful top-sliding overlay toast for Flutter. Supports success, error,
-  warning, info, and neutral types with smooth slide-in animation, optional
-  title, and action button.
-version: 0.0.6
+  Top-sliding overlay toasts + confirmation dialogs for Flutter. Supports
+  light/dark mode, 6 positions, 3 animations, queue/stack, progress bar,
+  and six dialog types with async confirm support.
+version: 0.0.8
 homepage: https://github.com/dhruvin2004/top_toast
 repository: https://github.com/dhruvin2004/top_toast
 issue_tracker: https://github.com/dhruvin2004/top_toast/issues
