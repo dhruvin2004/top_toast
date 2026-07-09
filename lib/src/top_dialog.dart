@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'top_dialog_types.dart';
 
-// ─── Public API ───────────────────────────────────────────────────────────────
+//────── Public API ───────────────────────────────────────────────────────────────
 
 class TopDialog {
   TopDialog._();
