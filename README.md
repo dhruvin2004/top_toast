@@ -1,6 +1,6 @@
 # top_toast
 
-A beautiful top-sliding overlay toast notification for Flutter.
+A beautiful top-sliding overlay **toast** / **snackbar** notification and confirmation **dialog** package for Flutter.
 
 - Five built-in types: **success**, **error**, **warning**, **info**, **neutral**
 - **Light & dark mode** — auto-detects system theme; force with `lightBuilder` / `darkBuilder`
@@ -42,7 +42,7 @@ A beautiful top-sliding overlay toast notification for Flutter.
 
 ```yaml
 dependencies:
-  top_toast: ^0.0.8
+  top_toast: ^1.0.0
 ```
 
 ### 2. Initialise and wire up the builder

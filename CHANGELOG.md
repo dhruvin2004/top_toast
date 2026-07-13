@@ -1,3 +1,9 @@
+## 1.0.0
+
+* **Stable release** — API is considered stable going forward.
+* Fixed a staleness bug in `TopToast.builder` / `lightBuilder` / `darkBuilder`: the internal `Overlay` only applied `initialEntries` on its very first build, so the wrapped app content could get silently pinned to an old widget instance across later rebuilds (route changes, theme/orientation changes, etc.). The app content is now kept live via a `ValueListenableBuilder` on every rebuild.
+* Added pub.dev `topics` for discoverability (`toast`, `snackbar`, `notifications`, `dialog`, `overlay`).
+
 ## 0.0.9
 
 * Bug fixes and stability improvements.

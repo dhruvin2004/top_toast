@@ -6,6 +6,13 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "7788", "--directory", "screenshots"],
       "port": 7788
+    },
+    {
+      "name": "example-web",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["run", "-d", "web-server", "--web-port", "7789", "--web-hostname", "0.0.0.0"],
+      "cwd": "example",
+      "port": 7789
     }
   ]
 }

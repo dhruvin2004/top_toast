@@ -1,12 +1,18 @@
 name: top_toast
 description: >-
-  Top-sliding overlay toasts + confirmation dialogs for Flutter. Supports
-  light/dark mode, 6 positions, 3 animations, queue/stack, progress bar,
-  and six dialog types with async confirm support.
-version: 0.0.9
+  Flutter toast, snackbar and confirmation dialog package. Top-sliding
+  overlay toasts with light/dark mode, 6 positions, 3 animations,
+  queue/stack, progress bar, and six dialog types with async confirm.
+version: 1.0.0
 homepage: https://github.com/dhruvin2004/top_toast
 repository: https://github.com/dhruvin2004/top_toast
 issue_tracker: https://github.com/dhruvin2004/top_toast/issues
+topics:
+  - toast
+  - snackbar
+  - notifications
+  - dialog
+  - overlay
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

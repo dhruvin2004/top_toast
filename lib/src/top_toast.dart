@@ -57,6 +57,14 @@ class TopToast {
   static Brightness? _forcedBrightness;
   static TopToastConfig _config = const TopToastConfig();
 
+  // Holds the current app content shown by the wrapping Overlay (see
+  // `_buildOverlay`). Kept outside the entry's builder closure and driven
+  // through a ValueNotifier so every MaterialApp/builder rebuild — route
+  // changes, theme/orientation changes, keyboard viewInsets updates, etc. —
+  // is reflected immediately instead of being frozen to the first build.
+  static final _appChildNotifier = ValueNotifier<Widget?>(null);
+  static OverlayEntry? _appEntry;
+
   // Stack management via ValueNotifier — no GlobalKey needed on _ToastStack.
   static OverlayEntry? _stackEntry;
   static final _toastsNotifier = ValueNotifier<List<_ToastData>>([]);
@@ -91,11 +99,24 @@ class TopToast {
 
   static Widget _buildOverlay(BuildContext context, Widget? child, Brightness? b) {
     _forcedBrightness = b;
+    _appChildNotifier.value = child;
+
+    // `OverlayState.initState()` only consumes `initialEntries` once — when
+    // the GlobalKey re-attaches to this same Overlay on every rebuild, a
+    // freshly-built OverlayEntry here would just be discarded, leaving the
+    // *first* build's `child` (and its MediaQuery/Navigator/keyboard-inset
+    // state) permanently frozen underneath. Reusing a single entry backed by
+    // a ValueListenableBuilder keeps the app content live on every rebuild.
+    _appEntry ??= OverlayEntry(
+      builder: (_) => ValueListenableBuilder<Widget?>(
+        valueListenable: _appChildNotifier,
+        builder: (_, value, __) => value ?? const SizedBox.shrink(),
+      ),
+    );
+
     return Overlay(
       key: _overlayKey,
-      initialEntries: [
-        OverlayEntry(builder: (_) => child ?? const SizedBox.shrink()),
-      ],
+      initialEntries: [_appEntry!],
     );
   }
 
